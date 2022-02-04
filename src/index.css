@@ -1,15 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+/* COLORS */
 :root {
 	--black: #222;
+	--blue: #273C75;
+	--gray: #636E72;
 	--white: #FFF;
 }
 
+/* CSS RESET */
 * {
 	margin: 0;
 	padding: 0;
 }
 
+
+/* DEFAULT */
 html,
 body {
     font-family: 'Poppins', sans-serif;
@@ -34,6 +40,19 @@ ol {
 
 a {
 	text-decoration: none;
+}
+
+a,
+button {
+	cursor: pointer;
+}
+
+input {
+	outline: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+	display: none;
 }
 
 .container {
