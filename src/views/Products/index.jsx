@@ -13,13 +13,19 @@ export default function Products() {
 		const data = await response.json()
 
 		setProducts(data)
-
-		console.log(data)
 	}
 
 	useEffect(() => {
 		getProducts()
 	}, [])
+
+	const addToCart = (title, image, price) => {
+		console.log(`
+			NOME: ${title}, 
+			PREÇO: ${price}
+			IMAGEM: ${image}
+		`)
+	}
 
 	return (
 		<>
@@ -50,7 +56,11 @@ export default function Products() {
 										{ item.price }
 									</span>
 
-									<button className="product-box__button" title="Comprar produto">
+									<button 
+										onClick={ () => addToCart(item.title, item.image, item.price) }
+										className="product-box__button" 
+										title="Comprar produto"
+									>
 										Comprar
 									</button>
 								</div>
