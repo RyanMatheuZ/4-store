@@ -20,65 +20,67 @@ export default function Register() {
 						</p>
 					</header>
 
-					<form className="form">
-						<div className="form__box">
-							<label htmlFor="name" className="form__label">
-								Nome:
-							</label>
+					<div className="container-form">
+						<form className="form">
+							<div className="form__box">
+								<label htmlFor="name" className="form__label">
+									Nome:
+								</label>
 
-							<input
-								type="text"
-								id="name"
-								placeholder="João"
-								className="form__input"
-							/>
-						</div>
+								<input
+									type="text"
+									id="name"
+									placeholder="João"
+									className="form__input"
+								/>
+							</div>
 
-						<div className="form__box">
-							<label htmlFor="person-id" className="form__label">
-								CPF:
-							</label>
+							<div className="form__box">
+								<label htmlFor="person-id" className="form__label">
+									CPF:
+								</label>
 
-							<input
-								type="number"
-								id="person-id"
-								placeholder="xxx.xxx.xxx-xx"
-								className="form__input"
-							/>
-						</div>
+								<input
+									type="number"
+									id="person-id"
+									placeholder="xxx.xxx.xxx-xx"
+									className="form__input"
+								/>
+							</div>
 
-						<div className="form__box">
-							<label htmlFor="email" className="form__label">
-								E-mail:
-							</label>
+							<div className="form__box">
+								<label htmlFor="email" className="form__label">
+									E-mail:
+								</label>
 
-							<input
-								type="text"
-								id="email"
-								placeholder="nome@endereco.com"
-								className="form__input"
-							/>
-						</div>
+								<input
+									type="text"
+									id="email"
+									placeholder="nome@endereco.com"
+									className="form__input"
+								/>
+							</div>
 
-						<div className="form__box">
-							<label htmlFor="password" className="form__label">
-								Senha:
-							</label>
+							<div className="form__box">
+								<label htmlFor="password" className="form__label">
+									Senha:
+								</label>
 
-							<input
-								type="password"
-								id="password"
-								placeholder="••••••••••"
-								className="form__input"
-							/>
-						</div>
+								<input
+									type="password"
+									id="password"
+									placeholder="••••••••••"
+									className="form__input"
+								/>
+							</div>
 
-						<div className="form__box">
-							<button className="form__button">
-								Registrar
-							</button>
-						</div>
-					</form>
+							<div className="form__box">
+								<button className="form__button">
+									Registrar
+								</button>
+							</div>
+						</form>
+					</div>
 
 					<div className="warning">
 						<p className="warning__text">

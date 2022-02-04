@@ -11,7 +11,7 @@ export default function Login() {
 			<Header />
 
 			<main>
-				<div className="container">
+				<div className="container container--form">
 					<header className="header-form">
 						<h1 className="header-form__title">
 							Olá novamente!
@@ -22,39 +22,41 @@ export default function Login() {
 						</p>
 					</header>
 
-					<form className="form">
-						<div className="form__box">
-							<label htmlFor="email" className="form__label">
-								E-mail:
-							</label>
+					<div className="container-form">
+						<form className="form">
+							<div className="form__box">
+								<label htmlFor="email" className="form__label">
+									E-mail:
+								</label>
 
-							<input
-								type="text"
-								id="email"
-								placeholder="nome@endereco.com"
-								className="form__input"
-							/>
-						</div>
+								<input
+									type="text"
+									id="email"
+									placeholder="nome@endereco.com"
+									className="form__input"
+								/>
+							</div>
 
-						<div className="form__box">
-							<label htmlFor="password" className="form__label">
-								Senha:
-							</label>
+							<div className="form__box">
+								<label htmlFor="password" className="form__label">
+									Senha:
+								</label>
 
-							<input
-								type="password"
-								id="password"
-								placeholder="••••••••••"
-								className="form__input"
-							/>
-						</div>
+								<input
+									type="password"
+									id="password"
+									placeholder="••••••••••"
+									className="form__input"
+								/>
+							</div>
 
-						<div className="form__box">
-							<button className="form__button">
-								Entrar
-							</button>
-						</div>
-					</form>
+							<div className="form__box">
+								<button className="form__button">
+									Entrar
+								</button>
+							</div>
+						</form>
+					</div>
 
 					<div className="warning">
 						<p className="warning__text">
