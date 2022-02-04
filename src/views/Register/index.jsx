@@ -1,9 +1,30 @@
+import { useState } from 'react'
+
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
 import '../../forms.css'
 
 export default function Register() {
+	const [name, setName] = useState('')
+	const [id, setId] = useState('')
+	const [email, setEmail] = useState('')
+	const [password, setPassword] = useState('')
+
+	const validateForm = e => {
+		e.preventDefault()
+
+		if (!name || name.length < 4) {
+			alert('Preencha corretamente seu nome!')
+		} else if (!id || id.length !== 11) {
+			alert('Preencha corretamente seu CPF!')
+		} else if (!email) {
+			alert('Preencha corretamente seu e-mail!')
+		} else if (!password || password.length < 8) {
+			alert('Preencha corretamente sua senha!')
+		}
+	}
+
 	return (
 		<>
 			<Header />
@@ -28,6 +49,7 @@ export default function Register() {
 								</label>
 
 								<input
+									onChange={ e => setName(e.target.value) }
 									type="text"
 									id="name"
 									placeholder="João"
@@ -41,6 +63,7 @@ export default function Register() {
 								</label>
 
 								<input
+									onChange={ e => setId(e.target.value) }
 									type="number"
 									id="person-id"
 									placeholder="xxx.xxx.xxx-xx"
@@ -54,6 +77,7 @@ export default function Register() {
 								</label>
 
 								<input
+									onChange={ e => setEmail(e.target.value) }
 									type="text"
 									id="email"
 									placeholder="nome@endereco.com"
@@ -67,6 +91,7 @@ export default function Register() {
 								</label>
 
 								<input
+									onChange={ e => setPassword(e.target.value) }
 									type="password"
 									id="password"
 									placeholder="••••••••••"
@@ -75,7 +100,7 @@ export default function Register() {
 							</div>
 
 							<div className="form__box">
-								<button className="form__button">
+								<button className="form__button" onClick={ e => validateForm(e) }>
 									Registrar
 								</button>
 							</div>

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
@@ -6,6 +7,19 @@ import Footer from '../../components/Footer'
 import '../../forms.css'
 
 export default function Login() {
+	const [email, setEmail] = useState('')
+	const [password, setPassword] = useState('')
+
+	const validateForm = e => { 
+		e.preventDefault()
+
+		if (!email) {
+			alert('Preencha corretamente seu e-mail!')
+		} else if (!password || password.length < 4) {
+			alert('Preencha corretamente sua senha!')
+		}
+	}
+
 	return (
 		<>
 			<Header />
@@ -30,6 +44,7 @@ export default function Login() {
 								</label>
 
 								<input
+									onChange={ e => setEmail(e.target.value) }
 									type="text"
 									id="email"
 									placeholder="nome@endereco.com"
@@ -43,6 +58,7 @@ export default function Login() {
 								</label>
 
 								<input
+									onChange={ e => setPassword(e.target.value) }
 									type="password"
 									id="password"
 									placeholder="••••••••••"
@@ -51,7 +67,7 @@ export default function Login() {
 							</div>
 
 							<div className="form__box">
-								<button className="form__button">
+								<button className="form__button" onClick={ e => validateForm(e) }>
 									Entrar
 								</button>
 							</div>
