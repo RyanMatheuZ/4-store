@@ -26,11 +26,10 @@
 /* FORM  */
 form {
 	background-color: var(--black);
-	border-radius: 0 20px 0 20px;
+	border-radius: 0 20px 20px 20px;
 	margin: 2rem auto;
 	max-width: 400px;
 	padding: 2rem;
-	width: 100%;
 }
 
 .form__box {

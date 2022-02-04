@@ -2,13 +2,21 @@ import { Link } from "react-router-dom"
 
 import './header.css'
 
+import Logo from '../../img/icon/logo.svg'
+
 export default function Header() {
 	return (
 		<header className="header">
 			<div className="container container--header">
-				<figure className="header__logo">
-					Logo
-				</figure>
+				<Link to="/" className="header__logo">
+					<img
+						src={ Logo }
+						alt="4Store"
+						title="4Store"
+						draggable="false"
+						width="40"
+					/>
+				</Link>
 
 				<nav>
 					<ul className="list">
