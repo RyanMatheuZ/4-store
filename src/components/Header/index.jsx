@@ -25,18 +25,6 @@ export default function Header() {
 						</li>
 
 						<li className="list__item">
-							<Link to="/login" title="Entrar" className="list__link">
-								Entrar
-							</Link>
-						</li>
-
-						<li className="list__item">
-							<Link to="/register" title="Registrar" className="list__link">
-								Registrar
-							</Link>
-						</li>
-
-						<li className="list__item">
 							<Link to="/cart" title="Carrinho" className="list__link">
 								Carrinho
 							</Link>
