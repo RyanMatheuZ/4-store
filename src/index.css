@@ -7,6 +7,7 @@
 	--gray-light: #F4F1EA;
 	--gray: #636E72;
 	--green: #2ECC71;
+	--red: #E74C3C;
 	--white: #FFF;
 }
 
@@ -27,15 +28,6 @@ body {
     width: 100%;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-}
-
-main {
-    flex: 1 0 auto;
-}
-
 ul,
 ol {
 	list-style-type: none;
@@ -50,7 +42,9 @@ button {
 	cursor: pointer;
 }
 
-input {
+button,
+input,
+select {
 	outline: none;
 }
 

@@ -1,3 +1,8 @@
+.header-title {
+	margin-block: 2rem;
+	text-align: center;
+}
+
 .product-box {
 	display: flex;
 	flex-wrap: wrap;
@@ -48,10 +53,10 @@
 
 .product-box__button {
 	background-color: var(--green);
-	border-radius: 5px;
+	border-radius: 0 20px 20px 20px;
 	border: 0;
 	color: var(--white);
 	font-weight: 600;
-	padding: 0.5rem 1rem;
+	padding: 0.75rem 1.25rem;
 	width: 100px;
 }

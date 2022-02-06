@@ -1,5 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+
+import store from './redux/store'
 
 import './index.css'
 
@@ -16,19 +19,21 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 ReactDOM.render(
 	<BrowserRouter>
-		<Routes>
-			<Route path="/" element={ <App /> } />
+		<Provider store={ store }>
+			<Routes>
+				<Route path="/" element={ <App /> } />
 
-			<Route index element={ <Home />} />
+				<Route index element={ <Home />} />
 
-			<Route path="/products" element={ <Products /> } />
+				<Route path="/products" element={ <Products /> } />
 
-			<Route path="/login" element={ <Login /> } />
+				<Route path="/login" element={ <Login /> } />
 
-			<Route path="/register" element={ <Register /> } />
+				<Route path="/register" element={ <Register /> } />
 
-			<Route path="/cart" element={ <Cart /> } />
-		</Routes>
+				<Route path="/cart" element={ <Cart /> } />
+			</Routes>
+		</Provider>
 	</BrowserRouter>,
 	document.getElementById('root')
 )

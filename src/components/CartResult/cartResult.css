@@ -1,0 +1,62 @@
+.cart-result {
+	background-color: var(--gray);
+	border-radius: 0 20px 20px 20px;
+	color: var(--white);
+	display: flex;
+	flex-direction: column;
+	margin: 2rem auto 0 auto;
+	max-width: 800px;
+	padding: 1.5rem 2rem;
+}
+
+.cart-result__box {
+	align-items: center;
+	display: flex;
+	margin-top: 1.5rem;
+}
+
+.cart-result__text {
+	font-size: clamp(1rem, 2vw, 3rem);
+	font-weight: 600;
+}
+
+.cart-result__select {
+	border-radius: 3px;
+	border: 2px solid var(--black);
+	margin-left: 0.5rem;
+	padding: 0.65rem;
+}
+
+.cart-result__input {
+	border-radius: 3px;
+	border: 2px solid var(--black);
+	margin-left: 0.5rem;
+	padding: 0.5rem;
+}
+
+.cart-result__price-sign {
+	font-size: 1rem;
+}
+
+.cart-result-coupon {
+	background-color: var(--black);
+	border-radius: 0 20px 20px 20px;
+	border: 2px solid var(--white);
+	color: var(--white);
+	font-family: 'Poppins', sans-serif;
+	font-weight: 600;
+	margin-left: 0.5rem;
+	padding: 0.5rem 1rem;
+}
+
+.cart-result__button {
+	background-color: var(--black);
+	border-radius: 0 20px 20px 20px;
+	border: 2px solid var(--white);
+	color: var(--white);
+	font-size: 0.9rem;
+	font-weight: 600;
+	padding: 0.75rem 1.5rem;
+	transition: all 0.3s ease-in;
+    font-family: 'Poppins', sans-serif;
+}

@@ -10,13 +10,24 @@ export default function Login() {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 
-	const validateForm = e => { 
+	const userLogin = 'ryan@ryan.com'
+	const userPassword = '12345678'
+
+	const validateForm = e => {
 		e.preventDefault()
 
 		if (!email) {
 			alert('Preencha corretamente seu e-mail!')
 		} else if (!password || password.length < 4) {
 			alert('Preencha corretamente sua senha!')
+		} else {
+			if (email !== userLogin || password !== userPassword) {
+				alert('Usuário não registrado!')
+
+				return
+			}
+
+			alert('Bem-vindo, Ryan!')
 		}
 	}
 
@@ -45,7 +56,7 @@ export default function Login() {
 
 								<input
 									onChange={ e => setEmail(e.target.value) }
-									type="text"
+									type="email"
 									id="email"
 									placeholder="nome@endereco.com"
 									className="form__input"
@@ -67,7 +78,7 @@ export default function Login() {
 							</div>
 
 							<div className="form__box">
-								<button className="form__button" onClick={ e => validateForm(e) }>
+								<button className="form__button" onClick={ (e) => validateForm(e) }>
 									Entrar
 								</button>
 							</div>

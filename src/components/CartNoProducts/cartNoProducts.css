@@ -1,0 +1,32 @@
+.cart-no-products {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.cart-no-products__title,
+.cart-no-products__text {
+	text-align: center;
+}
+
+.cart-no-products__title {
+	color: var(--blue);
+	font-size: 2rem;
+	font-weight: 700;
+}
+
+.cart-no-products__text {
+	color: var(--black);
+	font-size: 1rem;
+	font-weight: 400;
+	margin: 0.5rem 0 2rem 0;
+}
+
+.cart-no-products__link {
+	background-color: var(--blue);
+	border-radius: 0 20px 20px 20px;
+	color: var(--white);
+	font-weight: 500;
+	margin-top: 1rem;
+	padding: 0.75rem 1rem;
+}

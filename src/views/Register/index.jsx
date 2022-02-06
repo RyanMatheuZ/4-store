@@ -22,6 +22,8 @@ export default function Register() {
 			alert('Preencha corretamente seu e-mail!')
 		} else if (!password || password.length < 8) {
 			alert('Preencha corretamente sua senha!')
+		} else {
+			alert(`${name}, foi registrado com sucesso!`)
 		}
 	}
 
