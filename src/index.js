@@ -12,6 +12,7 @@ import Products from './views/Products'
 import Login from './views/Login'
 import Register from './views/Register'
 import Cart from './views/Cart'
+import PurchaseCompleted from './views/PurchaseCompleted'
 
 import reportWebVitals from './reportWebVitals'
 
@@ -32,6 +33,8 @@ ReactDOM.render(
 				<Route path="/register" element={ <Register /> } />
 
 				<Route path="/cart" element={ <Cart /> } />
+
+				<Route path="/purchase-completed" element={ <PurchaseCompleted /> } />
 			</Routes>
 		</Provider>
 	</BrowserRouter>,

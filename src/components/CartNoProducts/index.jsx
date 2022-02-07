@@ -7,11 +7,11 @@ import './cartNoProducts.css'
 import Cart from '../../img/icon/cart.svg'
 
 export default function CartNoProducts() {
-	const { totalValue } = useSelector(selectCart)
+	const { productCart } = useSelector(selectCart)
 
 	return (
 		<>
-			{totalValue === 0 && (
+			{productCart.length === 0 && (
 				<section className="container cart-no-products">
 					<figure>
 						<img

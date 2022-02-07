@@ -6,10 +6,19 @@ export const slice = createSlice({
 	initialState: {
 		productCart: [],
 		typeOfPayment: '',
+		couponCode: '',
 		totalValue: 0
 	},
 
 	reducers: {
+		CLEAR_CART(state) {
+			return {
+				...state,
+
+				productCart: []
+			}
+		},
+
 		ADD_TO_CART(state, { payload }) {
 			return {
 				...state,
@@ -52,16 +61,26 @@ export const slice = createSlice({
 
 				typeOfPayment: payload
 			}
+		},
+
+		ADD_COUPON_CODE(state, {payload}) {
+			return {
+				...state,
+
+				couponCode: payload
+			}
 		}
 	}
 })
 
 export const {
+	CLEAR_CART,
 	ADD_TO_CART,
 	REMOVE_PRODUCT,
 	SUM_ALL_PRICES,
 	SUBTRACT_ALL_PRICES,
-	TYPE_OF_PAYMENT
+	TYPE_OF_PAYMENT,
+	ADD_COUPON_CODE
 } = slice.actions
 
 export const selectCart = state => state.shop

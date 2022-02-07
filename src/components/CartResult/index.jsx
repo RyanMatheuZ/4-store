@@ -1,20 +1,22 @@
 import { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import { selectCart } from '../../redux/cartSlice'
 
-import { TYPE_OF_PAYMENT } from '../../redux/cartSlice'
+import { TYPE_OF_PAYMENT, CLEAR_CART, ADD_COUPON_CODE } from '../../redux/cartSlice'
 
 import './cartResult.css'
 
 export default function CartResult() {
-	const { totalValue } = useSelector(selectCart)
+	const { productCart, totalValue } = useSelector(selectCart)
 
+	const navigate = useNavigate()
 	const dispatch = useDispatch()
-
-	const couponCode = '4store'
 
 	const [userCoupon, setUserCoupon] = useState('')
 	const [userTypeOfPayment, setUserTypeOfPayment] = useState('')
+
+	const couponCode = '4store'
 
 	const validateCoupon = () => {
 		if (userCoupon !== couponCode) {
@@ -24,6 +26,8 @@ export default function CartResult() {
 		}
 
 		alert('Cupom válido!')
+
+		dispatch(ADD_COUPON_CODE(couponCode))
 	}
 
 	const finalizaPurchase = payment => {
@@ -34,11 +38,15 @@ export default function CartResult() {
 		}
 
 		dispatch(TYPE_OF_PAYMENT(payment))
+
+		dispatch(CLEAR_CART())
+
+		navigate('/purchase-completed', { replace: true })
 	}
 
 	return (
 		<>
-			{totalValue > 0 && (
+			{productCart.length > 0 && (
 				<section className="cart-result">
 					<div className="cart-result__box">
 						<p className="cart-result__text">
