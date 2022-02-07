@@ -1,6 +1,9 @@
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { selectCart } from '../../redux/cartSlice'
+
+import { ADD_COUPON_CODE } from '../../redux/cartSlice'
 
 import './purchaseCompleted.css'
 
@@ -8,6 +11,15 @@ import Back from '../../img/icon/back.svg'
 
 export default function PurchasedCompleted() {
 	const { totalValue, typeOfPayment, couponCode } = useSelector(selectCart)
+
+	const navigate = useNavigate()
+	const dispatch = useDispatch()
+
+	const clearCoupon = () =>  {
+		dispatch(ADD_COUPON_CODE(''))
+
+		navigate('/', { replace: true })
+	}
 
 	return (
 		<main className="main">
@@ -49,15 +61,18 @@ export default function PurchasedCompleted() {
 						</li>
 					</ul>
 
-					<div className="purchased-completed-box__link">
-						<Link to="/">
+					<div className="purchased-completed-box__button-box">
+						<button
+							onClick={ () => clearCoupon() }
+							title="Voltar ao início"
+							className="purchased-completed-box__button"
+						>
 							<img
 								src={ Back }
 								alt="Voltar ao início"
-								title="Voltar ao início"
-								width={ 30 }
+								width="25"
 							/>
-						</Link>
+						</button>
 					</div>
 				</section>
 			</div>

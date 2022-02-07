@@ -44,6 +44,14 @@
 	font-weight: 600;
 }
 
-.purchased-completed-box__link {
+.purchased-completed-box__button-box {
 	margin-top: 1rem;
+}
+
+.purchased-completed-box__button {
+	background-color: var(--black);
+	border-radius: 0 20px 20px 20px;
+	border: none;
+	font-size: 0;
+	padding: 0.5rem;
 }

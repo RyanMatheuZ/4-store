@@ -3,8 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import { selectCart } from '../../redux/cartSlice'
 
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+
 import { TYPE_OF_PAYMENT, CLEAR_CART, ADD_COUPON_CODE } from '../../redux/cartSlice'
 
+import 'sweetalert2/dist/sweetalert2.css'
 import './cartResult.css'
 
 export default function CartResult() {
@@ -20,19 +23,34 @@ export default function CartResult() {
 
 	const validateCoupon = () => {
 		if (userCoupon !== couponCode) {
-			alert('Cupom inválido!')
+			Swal.fire({
+				title: 'Inválido',
+				text: 'Esse cupom não existe!',
+				icon: 'error',
+				confirmButtonText: 'Ok'
+			})
 
 			return
 		}
 
-		alert('Cupom válido!')
+		Swal.fire({
+			title: 'Válido',
+			text: 'Cupom adicionado!',
+			icon: 'success',
+			confirmButtonText: 'Ok'
+		})
 
 		dispatch(ADD_COUPON_CODE(couponCode))
 	}
 
 	const finalizaPurchase = payment => {
 		if (!userTypeOfPayment) {
-			alert('Adicione um método de pagamento!')
+			Swal.fire({
+				title: 'Erro',
+				text: 'Adicione um método de pagamento',
+				icon: 'error',
+				confirmButtonText: 'Ok'
+			})
 
 			return
 		}

@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
+import 'sweetalert2/dist/sweetalert2.css'
 import '../../forms.css'
 
 export default function Login() {
@@ -17,17 +19,37 @@ export default function Login() {
 		e.preventDefault()
 
 		if (!email) {
-			alert('Preencha corretamente seu e-mail!')
+			Swal.fire({
+				title: 'Erro',
+				text: 'Preencha corretamente seu e-mail!',
+				icon: 'error',
+				confirmButtonText: 'Ok'
+			})
 		} else if (!password || password.length < 4) {
-			alert('Preencha corretamente sua senha!')
+			Swal.fire({
+				title: 'Erro',
+				text: 'Preencha corretamente sua senha!',
+				icon: 'error',
+				confirmButtonText: 'Ok'
+			})
 		} else {
 			if (email !== userLogin || password !== userPassword) {
-				alert('Usuário não registrado!')
+				Swal.fire({
+					title: 'Sucesso',
+					text: 'Usuário não registrado!',
+					icon: 'error',
+					confirmButtonText: 'Ok'
+				})
 
 				return
 			}
 
-			alert('Bem-vindo, Ryan!')
+			Swal.fire({
+				title: 'Login realizado',
+				text: 'Bem-vindo, Ryan!',
+				icon: 'success',
+				confirmButtonText: 'Ok'
+			})
 		}
 	}
 

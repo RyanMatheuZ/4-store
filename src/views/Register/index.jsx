@@ -1,8 +1,10 @@
 import { useState } from 'react'
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
+import 'sweetalert2/dist/sweetalert2.css'
 import '../../forms.css'
 
 export default function Register() {
@@ -15,15 +17,40 @@ export default function Register() {
 		e.preventDefault()
 
 		if (!name || name.length < 4) {
-			alert('Preencha corretamente seu nome!')
+			Swal.fire({
+				title: 'Erro',
+				text: 'Preencha corretamente seu nome!',
+				icon: 'error',
+				confirmButtonText: 'Ok'
+			})
 		} else if (!id || id.length !== 11) {
-			alert('Preencha corretamente seu CPF!')
+			Swal.fire({
+				title: 'Erro',
+				text: 'Preencha corretamente seu CPF!',
+				icon: 'error',
+				confirmButtonText: 'Ok'
+			})
 		} else if (!email) {
-			alert('Preencha corretamente seu e-mail!')
+			Swal.fire({
+				title: 'Erro',
+				text: 'Preencha corretamente seu e-mail!',
+				icon: 'error',
+				confirmButtonText: 'Ok'
+			})
 		} else if (!password || password.length < 8) {
-			alert('Preencha corretamente sua senha!')
+			Swal.fire({
+				title: 'Erro',
+				text: 'Preencha corretamente sua senha!',
+				icon: 'error',
+				confirmButtonText: 'Ok'
+			})
 		} else {
-			alert(`${name}, foi registrado com sucesso!`)
+			Swal.fire({
+				title: 'Registrado',
+				text: `${name}, você está registrado!`,
+				icon: 'success',
+				confirmButtonText: 'Ok'
+			})
 		}
 	}
 

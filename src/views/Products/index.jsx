@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react'
-
 import { useDispatch } from 'react-redux'
 
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+
 import { ADD_TO_CART, SUM_ALL_PRICES } from '../../redux/cartSlice'
+
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
+import 'sweetalert2/dist/sweetalert2.css'
 import './products.css'
 
 export default function Products() {
@@ -28,7 +31,12 @@ export default function Products() {
 	const addToCart = (id, title, image, price) =>  {
 		dispatch(ADD_TO_CART({id, title, image, price}))
 
-		alert(`${title} adicionado!`)
+		Swal.fire({
+			title: 'Produto adicionado',
+			text: title,
+			icon: 'success',
+			confirmButtonText: 'Ok'
+		})
 
 		dispatch(SUM_ALL_PRICES())
 	}
