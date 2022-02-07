@@ -44,7 +44,7 @@ export default function PurchasedCompleted() {
 
 						<li className="purchased-completed-box__item">
 							<span className="purchased-completed-box__item-title">
-								Total:
+								Total: R$
 							</span> { couponCode ? totalValue - (totalValue * 10 / 100) : totalValue }
 						</li>
 					</ul>

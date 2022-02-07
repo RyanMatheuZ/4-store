@@ -60,3 +60,18 @@
 	transition: all 0.3s ease-in;
     font-family: 'Poppins', sans-serif;
 }
+
+@media (max-width: 800px) {
+	.div-container {
+		padding: 1rem;
+	}
+
+	.cart-result__box {
+		flex-direction: column;
+	}
+
+	.cart-result__select,
+	.cart-result__input {
+		margin-block: 0.5rem;
+	}
+}

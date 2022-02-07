@@ -5,7 +5,7 @@ import Footer from '../../components/Footer'
 
 import './home.css'
 
-import Buying from '../../img/buying.jpg'
+import Buying from '../../img/buying.png'
 
 export default function Home() {
 	return (

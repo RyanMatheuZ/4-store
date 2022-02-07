@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { selectCart } from '../../redux/cartSlice'
 
-import { REMOVE_PRODUCT, SUBTRACT_ALL_PRICES } from '../../redux/cartSlice'
+import { REMOVE_PRODUCT, SUM_ALL_PRICES } from '../../redux/cartSlice'
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
@@ -15,10 +15,10 @@ export default function Cart() {
 
 	const dispatch = useDispatch()
 
-	const removeProduct = (id) => {
+	const removeProduct = id => {
 		dispatch(REMOVE_PRODUCT(id))
 
-		dispatch(SUBTRACT_ALL_PRICES())
+		dispatch(SUM_ALL_PRICES())
 	}
 
 	return (

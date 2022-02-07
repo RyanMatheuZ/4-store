@@ -18,6 +18,7 @@ export default function CartNoProducts() {
 							src={ Cart }
 							alt="Carrinho vazio!"
 							title="Carrinho vazio!"
+							draggable="false"
 							width={ 90 }
 						/>
 					</figure>

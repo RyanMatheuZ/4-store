@@ -45,7 +45,7 @@ export default function CartResult() {
 	}
 
 	return (
-		<>
+		<div className="div-container">
 			{productCart.length > 0 && (
 				<section className="cart-result">
 					<div className="cart-result__box">
@@ -102,6 +102,6 @@ export default function CartResult() {
 					</div>
 				</section>
 			)}
-		</>
+		</div>
 	)
 }

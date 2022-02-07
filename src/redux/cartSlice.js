@@ -31,7 +31,9 @@ export const slice = createSlice({
 			return {
 				...state,
 
-				productCart: state.productCart.filter(item => item.id !== payload)
+				productCart: state.productCart.filter(item => item.id !== payload),
+
+				totalValue: 0
 			}
 		},
 
@@ -41,16 +43,6 @@ export const slice = createSlice({
 
 				totalValue: state.productCart.reduce(
 					(prevVal, item) => item.price + prevVal, 0
-				)
-			}
-		},
-
-		SUBTRACT_ALL_PRICES(state) {
-			return {
-				...state,
-
-				totalValue: state.productCart.reduce(
-					(prevVal, item) => item.price - prevVal, 0
 				)
 			}
 		},
@@ -78,7 +70,6 @@ export const {
 	ADD_TO_CART,
 	REMOVE_PRODUCT,
 	SUM_ALL_PRICES,
-	SUBTRACT_ALL_PRICES,
 	TYPE_OF_PAYMENT,
 	ADD_COUPON_CODE
 } = slice.actions
