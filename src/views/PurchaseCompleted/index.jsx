@@ -1,8 +1,7 @@
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux'
-import { selectCart } from '../../redux/cartSlice'
+import { useSelector, useDispatch } from 'react-redux'
 
+import { selectCart } from '../../redux/cartSlice'
 import { ADD_COUPON_CODE } from '../../redux/cartSlice'
 
 import './purchaseCompleted.css'

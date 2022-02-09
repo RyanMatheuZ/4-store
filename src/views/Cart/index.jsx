@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { selectCart } from '../../redux/cartSlice'
 
+import { selectCart } from '../../redux/cartSlice'
 import { REMOVE_PRODUCT, SUM_ALL_PRICES } from '../../redux/cartSlice'
 
 import Header from '../../components/Header'

@@ -1,17 +1,17 @@
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
+
 import { selectCart } from '../../redux/cartSlice'
+import { TYPE_OF_PAYMENT, CLEAR_CART, ADD_COUPON_CODE } from '../../redux/cartSlice'
 
 import Swal from 'sweetalert2/dist/sweetalert2.js'
-
-import { TYPE_OF_PAYMENT, CLEAR_CART, ADD_COUPON_CODE } from '../../redux/cartSlice'
 
 import 'sweetalert2/dist/sweetalert2.css'
 import './cartResult.css'
 
 export default function CartResult() {
-	const { productCart, totalValue } = useSelector(selectCart)
+	const { productCart, couponCode, totalValue } = useSelector(selectCart)
 
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
@@ -19,10 +19,10 @@ export default function CartResult() {
 	const [userCoupon, setUserCoupon] = useState('')
 	const [userTypeOfPayment, setUserTypeOfPayment] = useState('')
 
-	const couponCode = '4store'
+	const coupon = '4store'
 
 	const validateCoupon = () => {
-		if (userCoupon !== couponCode) {
+		if (userCoupon !== coupon) {
 			Swal.fire({
 				title: 'Inválido',
 				text: 'Esse cupom não existe!',
@@ -40,7 +40,7 @@ export default function CartResult() {
 			confirmButtonText: 'Ok'
 		})
 
-		dispatch(ADD_COUPON_CODE(couponCode))
+		dispatch(ADD_COUPON_CODE(coupon))
 	}
 
 	const finalizaPurchase = payment => {
@@ -106,7 +106,7 @@ export default function CartResult() {
 
 					<div className="cart-result__box">
 						<p className="cart-result__text">
-							• Total: <span className="cart-result__price-sign">R$</span> { totalValue }
+							• Total: <span className="cart-result__price-sign">R$</span> { couponCode ? totalValue - (totalValue * 10 / 100) : totalValue }
 						</p>
 					</div>
 

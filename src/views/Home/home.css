@@ -35,6 +35,7 @@
 .section-initial__figure {
 	margin-block: 1rem;
 	max-width: 400px;
+	padding: 0.5rem;
 }
 
 .section-initial__image {

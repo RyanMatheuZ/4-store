@@ -1,18 +1,21 @@
 import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+
+import { selectCart } from '../../redux/cartSlice'
+import { ADD_TO_CART, SUM_ALL_PRICES } from '../../redux/cartSlice'
 
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 
-import { ADD_TO_CART, SUM_ALL_PRICES } from '../../redux/cartSlice'
-
-
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import Loading from '../../components/Loading'
 
 import 'sweetalert2/dist/sweetalert2.css'
 import './products.css'
 
 export default function Products() {
+	const { productCart } = useSelector(selectCart)
+
 	const [products, setProducts] = useState([])
 
 	const dispatch = useDispatch()
@@ -28,8 +31,21 @@ export default function Products() {
 		getProducts()
 	}, [])
 
-	const addToCart = (id, title, image, price, count = 1) =>  {
-		dispatch(ADD_TO_CART({id, title, image, price, count}))
+	const addToCart = (id, title, image, price) =>  {
+		let productAlreadyExists = productCart.find(product => product.title === title)
+
+		if (productAlreadyExists) {
+			Swal.fire({
+				title: 'Produto já existe no carrinho!',
+				text: title,
+				icon: 'error',
+				confirmButtonText: 'Ok'
+			})
+
+			return
+		}
+
+		dispatch(ADD_TO_CART({id, title, image, price}))
 
 		Swal.fire({
 			title: 'Produto adicionado',
@@ -52,43 +68,51 @@ export default function Products() {
 					</h1>
 				</header>
 
-				<section className="container product-box">
-					{products && (
-						products.map(item => (
-							<article key={ item.id } className="product-box__item">
-								<figure className="product-box__image">
-									<img
-										src={ item.image }
-										alt={ item.title }
-										title={ item.title }
-										draggable="false"
-										width={ 100 }
-									/>
-								</figure>
+				{products.length === 0 && (
+					<Loading />
+				)}
 
-								<span className="product-box__name" title="Nome">
-									{ item.title }
-								</span>
+				{products.length > 0 && (
+					<section className="container product-box">
+						{products && (
+							products.map((item, index) => (
+								<article key={ item.id } className="product-box__item">
+									<figure className="product-box__image">
+										<img
+											src={ item.image }
+											alt={ item.title }
+											title={ item.title }
+											draggable="false"
+											width="100"
+										/>
+									</figure>
 
-								<div className="product-box__info">
-									<span className="product-box__price" title="Preço">
-										<span className="product-box__price-sign">R$</span> { item.price }
+									<span className="product-box__name" title="Nome">
+										{ item.title }
 									</span>
 
-									<button
-										onClick={
-											() => addToCart(item.id, item.title, item.image, item.price)
-										}
-										className="product-box__button"
-										title="Comprar produto"
-									>
-										Comprar
-									</button>
-								</div>
-							</article>
-						))
-					)}
-				</section>
+									<div className="product-box__info">
+										<span className="product-box__price" title="Preço">
+											<span className="product-box__price-sign">R$</span> { item.price }
+										</span>
+
+										<div>
+											<button
+												onClick={
+													() => addToCart(item.id, item.title, item.image, item.price)
+												}
+												className="product-box__button"
+												title="Comprar produto"
+											>
+												Comprar
+											</button>
+										</div>
+									</div>
+								</article>
+							))
+						)}
+					</section>
+				)}
 			</main>
 
 			<Footer />

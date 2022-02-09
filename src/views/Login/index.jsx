@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 import Header from '../../components/Header'
@@ -35,7 +36,7 @@ export default function Login() {
 		} else {
 			if (email !== userLogin || password !== userPassword) {
 				Swal.fire({
-					title: 'Sucesso',
+					title: 'Erro',
 					text: 'Usuário não registrado!',
 					icon: 'error',
 					confirmButtonText: 'Ok'

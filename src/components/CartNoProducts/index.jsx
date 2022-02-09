@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+
 import { selectCart } from '../../redux/cartSlice'
 
 import './cartNoProducts.css'
@@ -19,7 +20,7 @@ export default function CartNoProducts() {
 							alt="Carrinho vazio!"
 							title="Carrinho vazio!"
 							draggable="false"
-							width={ 90 }
+							width="90"
 						/>
 					</figure>
 
