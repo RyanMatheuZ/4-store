@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -9,6 +10,10 @@ import './purchaseCompleted.css'
 import Back from '../../img/icon/back.svg'
 
 export default function PurchasedCompleted() {
+	useEffect(() => {
+		document.title = '4Store | Compra finalizada'
+	},[])
+
 	const { totalValue, typeOfPayment, couponCode } = useSelector(selectCart)
 
 	const navigate = useNavigate()

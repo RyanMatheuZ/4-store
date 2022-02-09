@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import Header from '../../components/Header'
@@ -8,6 +9,10 @@ import './home.css'
 import Buying from '../../img/buying.png'
 
 export default function Home() {
+	useEffect(() => {
+		document.title = '4Store | Início'
+	},[])
+
 	return (
 		<>
 			<Header />

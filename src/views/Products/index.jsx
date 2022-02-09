@@ -28,6 +28,8 @@ export default function Products() {
 	}
 
 	useEffect(() => {
+		document.title = '4Store | Produtos'
+
 		getProducts()
 	}, [])
 

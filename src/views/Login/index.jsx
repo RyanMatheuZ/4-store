@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import Swal from 'sweetalert2/dist/sweetalert2.js'
@@ -10,6 +10,10 @@ import 'sweetalert2/dist/sweetalert2.css'
 import '../../forms.css'
 
 export default function Login() {
+	useEffect(() => {
+		document.title = '4Store | Entrar'
+	},[])
+
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 

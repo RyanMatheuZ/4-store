@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { selectCart } from '../../redux/cartSlice'
@@ -11,6 +12,10 @@ import CartNoProducts from '../../components/CartNoProducts'
 import './cart.css'
 
 export default function Cart() {
+	useEffect(() => {
+		document.title = '4Store | Carrinho de compras'
+	},[])
+
 	const { productCart } = useSelector(selectCart)
 
 	const dispatch = useDispatch()

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 
@@ -9,6 +9,10 @@ import 'sweetalert2/dist/sweetalert2.css'
 import '../../forms.css'
 
 export default function Register() {
+	useEffect(() => {
+		document.title = '4Store | Registro'
+	},[])
+
 	const [name, setName] = useState('')
 	const [id, setId] = useState('')
 	const [email, setEmail] = useState('')
