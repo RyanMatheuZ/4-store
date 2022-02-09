@@ -1,8 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
+import { persistStore } from 'redux-persist'
 
-import store from './redux/store'
+import { store } from './redux/store'
 
 import './index.css'
 
@@ -18,24 +20,28 @@ import reportWebVitals from './reportWebVitals'
 
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
+let persistor = persistStore(store)
+
 ReactDOM.render(
 	<BrowserRouter>
 		<Provider store={ store }>
-			<Routes>
-				<Route path="/" element={ <App /> } />
+			<PersistGate loading={ null } persistor={ persistor }>
+				<Routes>
+					<Route path="/" element={ <App /> } />
 
-				<Route index element={ <Home />} />
+					<Route index element={ <Home />} />
 
-				<Route path="/products" element={ <Products /> } />
+					<Route path="/products" element={ <Products /> } />
 
-				<Route path="/login" element={ <Login /> } />
+					<Route path="/login" element={ <Login /> } />
 
-				<Route path="/register" element={ <Register /> } />
+					<Route path="/register" element={ <Register /> } />
 
-				<Route path="/cart" element={ <Cart /> } />
+					<Route path="/cart" element={ <Cart /> } />
 
-				<Route path="/purchase-completed" element={ <PurchaseCompleted /> } />
-			</Routes>
+					<Route path="/purchase-completed" element={ <PurchaseCompleted /> } />
+				</Routes>
+			</PersistGate>
 		</Provider>
 	</BrowserRouter>,
 	document.getElementById('root')

@@ -47,7 +47,7 @@ export default function CartResult() {
 		if (!userTypeOfPayment) {
 			Swal.fire({
 				title: 'Erro',
-				text: 'Adicione um método de pagamento',
+				text: 'Adicione um método de pagamento!',
 				icon: 'error',
 				confirmButtonText: 'Ok'
 			})

@@ -28,8 +28,8 @@ export default function Products() {
 		getProducts()
 	}, [])
 
-	const addToCart = (id, title, image, price) =>  {
-		dispatch(ADD_TO_CART({id, title, image, price}))
+	const addToCart = (id, title, image, price, count = 1) =>  {
+		dispatch(ADD_TO_CART({id, title, image, price, count}))
 
 		Swal.fire({
 			title: 'Produto adicionado',

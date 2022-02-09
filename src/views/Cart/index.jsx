@@ -36,34 +36,36 @@ export default function Cart() {
 
 				<section className="container product-cart">
 					{productCart && (
-						productCart.map(item => (
+						productCart.map((item, index) => (
 							<article key={ item.id } className="product-cart__item">
-								<figure className="product-cart__image">
-									<img
-										src={ item.image }
-										alt={ item.title }
-										title={ item.title }
-										draggable="false"
-										width={ 100 }
-									/>
-								</figure>
+								<div className="product-cart-box">
+									<figure className="product-cart__image">
+										<img
+											src={ item.image }
+											alt={ item.title }
+											title={ item.title }
+											draggable="false"
+											width="100"
+										/>
+									</figure>
 
-								<div className="product-info">
-									<span className="product-info__name" title="Nome">
-										{ item.title }
-									</span>
+									<div className="product-info">
+										<span className="product-info__name" title="Nome">
+											{ item.title }
+										</span>
 
-									<div className="product-info__price" title="Preço">
-										<span className="product-info__price-sign">R$</span>
-										{ item.price }
+										<div className="product-info__price" title="Preço">
+											<span className="product-info__price-sign">R$</span>
+											{ item.price }
+										</div>
 									</div>
 								</div>
 
 								<div className="remove-box">
 									<button
 										onClick={ () => removeProduct(item.id) }
-										className="remove-box__button"
 										title="Remover produto"
+										className="remove-box__button"
 									>
 										X
 									</button>
